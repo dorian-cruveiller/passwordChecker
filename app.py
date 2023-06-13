@@ -21,15 +21,15 @@ import string
 CHECK_LENGTH = 10
 CHECK_NUMBER = 2
 CHECK_SPECIAL_CHAR = 1
+CHECK_DUMB_PASSWORD_LIST = [
+  "azer", "Azer", "AzEr", "aZeR", "AZER", "qwer", "QWER", "123", "321"
+]
 
 # password generation constants
 GENERATION_MIN_NUMBER = 1
 GENERATION_MAX_NUMBER = 20
 GENERATION_MIN_LENGTH = 15
 GENERATION_MAX_LENGTH = 20
-CHECK_DUMB_PASSWORD_LIST = [
-  "azer", "Azer", "AzEr", "aZeR", "AZER", "qwer", "QWER", "123", "321"
-]
 
 # trash password constants
 SHITTY_PASSWORD_FILENAME = "shitty_passwords.txt"
