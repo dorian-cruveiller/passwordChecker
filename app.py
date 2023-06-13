@@ -180,11 +180,6 @@ def is_valid_password(password, verbose = False):
   write_shitty_password(password)
 
   return False
-  # if len(password) >= CHECK_LENGTH and count_number(password) >= CHECK_NUMBER and count_special_char(password) >= CHECK_SPECIAL_CHAR and is_dumb_password(password) == False and does_char_identic(password) == False and is_palindrome(password) == False:
-  #   return True
-  # else:
-  #   write_shitty_password(password)
-  # return False
 
 def generate_password(length):
   """
