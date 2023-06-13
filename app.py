@@ -56,6 +56,20 @@ def is_palindrome(string):
     return True
   return False
 
+def is_valid_password(password):
+  if len(password) >= 10 and count_number(password) >= 2 and count_special_char(password) >= 1 and is_dumb_password(password) == False and does_char_identic(password) == False and is_palindrome(password) == False:
+    return True
+  return False
+
+# ================== HANDLER ==================
+
+def handle_password_checking():
+  password = input("Enter the password to be checked: ")
+  if is_valid_password(password):
+    print("This password is safe to use")
+  else:
+    print("This password is trash")
+
 def handle_password_generation():
 
   password_number = -1
@@ -75,29 +89,25 @@ def handle_password_generation():
 
     password = ''
 
-    while (check_password(password) == False):
+    while (is_valid_password(password) == False):
       password = ''.join(secrets.choice(alphabet) for i in range(password_size))
 
     print(f"password {i + 1}: {password}")
 
-def check_password(password):
-  if len(password) >= 10 and count_number(password) >= 2 and count_special_char(password) >= 1 and is_dumb_password(password) == False and does_char_identic(password) == False and is_palindrome(password) == False:
-    return True
-  return False
+# main function
+def main():
+  while (True):
+    chosen_action = display_menu()
+    if chosen_action.isdigit() == True:
+      chosen_action = int(chosen_action)
 
-while (True):
-  chosen_action = display_menu()
-  if chosen_action.isdigit() == True:
-    chosen_action = int(chosen_action)
+      if chosen_action == 1:
+        handle_password_checking()
+      elif chosen_action == 2:
+        handle_password_generation()
+      elif chosen_action == 3:
+        print("See you soon :)")
+        sys.exit()
 
-    if chosen_action == 1:
-      password = input("Enter the password to be checked: ")
-      if check_password(password):
-        print("This password is safe to use")
-      else:
-        print("This password is trash")
-    elif chosen_action == 2:
-      handle_password_generation()
-    elif chosen_action == 3:
-      print("See you soon :)")
-      sys.exit()
+# Start script
+main()
