@@ -194,7 +194,7 @@ def handle_password_generation():
   """
   password_number = -1
   while (password_number == -1):
-    choosen_number = input(f"Enter the number of passwords to be generated [{GENERATION_MIN_NUMBER}-{GENERATION_MIN_NUMBER}]: ")
+    choosen_number = input(f"Enter the number of passwords to be generated [{GENERATION_MIN_NUMBER}-{GENERATION_MAX_NUMBER}]: ")
     if choosen_number.isdigit():
       choosen_number = int(choosen_number)
       if choosen_number >= GENERATION_MIN_NUMBER and choosen_number <= GENERATION_MAX_NUMBER:
