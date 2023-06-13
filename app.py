@@ -17,12 +17,12 @@ import re
 import secrets
 import string
 
-# password check contants
+# password check constants
 CHECK_LENGTH = 10
 CHECK_NUMBER = 2
 CHECK_SPECIAL_CHAR = 1
 
-# password generation contants
+# password generation constants
 GENERATION_MIN_NUMBER = 1
 GENERATION_MAX_NUMBER = 20
 GENERATION_MIN_LENGTH = 15
@@ -31,7 +31,7 @@ CHECK_DUMB_PASSWORD_LIST = [
   "azer", "Azer", "AzEr", "aZeR", "AZER", "qwer", "QWER", "123", "321"
 ]
 
-# trash password contants
+# trash password constants
 SHITTY_PASSWORD_FILENAME = "shitty_passwords.txt"
 
 def display_menu():
