@@ -145,7 +145,7 @@ def write_shitty_password(string):
   file.write(f"{string}\n")
   file.close()
 
-def is_valid_password(password):
+def is_valid_password(password, verbose = False):
   """
   Check if a given password is a valid one
 
@@ -155,11 +155,36 @@ def is_valid_password(password):
   Return:
     boolean value representing if the password is valid or not
   """
-  if len(password) >= CHECK_LENGTH and count_number(password) >= CHECK_NUMBER and count_special_char(password) >= CHECK_SPECIAL_CHAR and is_dumb_password(password) == False and does_char_identic(password) == False and is_palindrome(password) == False:
-    return True
+
+  if len(password) < CHECK_LENGTH:
+    if verbose:
+      print(f"the length is less than {CHECK_LENGTH}")
+  elif count_number(password) < CHECK_NUMBER:
+    if verbose:
+      print(f"contains less than {CHECK_NUMBER} numbers")
+  elif count_special_char(password) < CHECK_SPECIAL_CHAR:
+    if verbose:
+      print(f"contains less than {CHECK_SPECIAL_CHAR} special charaters")
+  elif is_dumb_password(password):
+    if verbose:
+      print("contains a dumb substring password")
+  elif does_char_identic(password):
+    if verbose:
+      print("contains two or more identical characters in a row")
+  elif is_palindrome(password):
+    if verbose:
+      print("this password is a palindrome")
   else:
-    write_shitty_password(password)
+    return True
+  
+  write_shitty_password(password)
+
   return False
+  # if len(password) >= CHECK_LENGTH and count_number(password) >= CHECK_NUMBER and count_special_char(password) >= CHECK_SPECIAL_CHAR and is_dumb_password(password) == False and does_char_identic(password) == False and is_palindrome(password) == False:
+  #   return True
+  # else:
+  #   write_shitty_password(password)
+  # return False
 
 def generate_password(length):
   """
@@ -183,7 +208,7 @@ def handle_password_checking():
   Handle the password check, this function is called from main
   """
   password = input("Enter the password to be checked: ")
-  if is_valid_password(password):
+  if is_valid_password(password, True):
     print("This password is safe to use")
   else:
     print("This password is shitty")
