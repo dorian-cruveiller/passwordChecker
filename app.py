@@ -32,7 +32,7 @@ CHECK_DUMB_PASSWORD_LIST = [
 ]
 
 # trash password contants
-TRASH_PASSWORD_FILENAME = "trash_passwords.txt"
+SHITTY_PASSWORD_FILENAME = "shitty_passwords.txt"
 
 def display_menu():
   """
@@ -134,14 +134,14 @@ def is_palindrome(string):
     return True
   return False
 
-def write_trash_password(string):
+def write_shitty_password(string):
   """
-  Write a file containing the string given as argument, this function is meant to write trash password into a file
+  Write a file containing the string given as argument, this function is meant to write shitty password into a file
 
   Args:
     string: the string to be written into the file
   """
-  file = open(TRASH_PASSWORD_FILENAME, 'a')
+  file = open(SHITTY_PASSWORD_FILENAME, 'a')
   file.write(f"{string}\n")
   file.close()
 
@@ -158,7 +158,7 @@ def is_valid_password(password):
   if len(password) >= CHECK_LENGTH and count_number(password) >= CHECK_NUMBER and count_special_char(password) >= CHECK_SPECIAL_CHAR and is_dumb_password(password) == False and does_char_identic(password) == False and is_palindrome(password) == False:
     return True
   else:
-    write_trash_password(password)
+    write_shitty_password(password)
   return False
 
 def generate_password(length):
@@ -186,7 +186,7 @@ def handle_password_checking():
   if is_valid_password(password):
     print("This password is safe to use")
   else:
-    print("This password is trash")
+    print("This password is shitty")
 
 def handle_password_generation():
   """
